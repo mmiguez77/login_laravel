@@ -21,4 +21,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Marcas
+use App\Http\Controllers\MarcaController;
+
+Route::get('/adminMarcas', [MarcaController::class, 'index'])
+    ->middleware(['auth'])->name('adminMarcas');
+
+// Categorias
+
+Route::get('/adminCategorias', function() {
+    return view('adminCategorias');
+})->middleware(['auth'])->name('adminCategorias');
+
+// Productos
+
+Route::get('/adminProductos', function() {
+    return view('adminProductos');
+})->middleware(['auth'])->name('adminProductos');
+
 require __DIR__.'/auth.php';
